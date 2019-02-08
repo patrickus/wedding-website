@@ -91,28 +91,8 @@ $(document).ready(function () {
 
             if (scroll >= 20) {
                 $('section.navigation').addClass('fixed');
-                $('header').css({
-                    "border-bottom": "none",
-                    "padding": "35px 0"
-                });
-                $('header .member-actions').css({
-                    "top": "26px",
-                });
-                $('header .navicon').css({
-                    "top": "34px",
-                });
             } else {
                 $('section.navigation').removeClass('fixed');
-                $('header').css({
-                    "border-bottom": "solid 1px rgba(255, 255, 255, 0.2)",
-                    "padding": "50px 0"
-                });
-                $('header .member-actions').css({
-                    "top": "41px",
-                });
-                $('header .navicon').css({
-                    "top": "48px",
-                });
             }
         });
     });
@@ -206,12 +186,13 @@ $(document).ready(function () {
 
     $('#add-to-cal').html(myCalendar);
 
-    $('#instagram-feed').html(userFeed.run());
-    $('#instagram-feed').html(scrape);
+    //$('#instagram-feed').html(userFeed.run());
 
 
     /********************** RSVP **********************/
-    $('#rsvp-form').on('submit', function (e) {
+    $('#rsvpBtn').on('click', function (e) {
+        console.log('hereeeeeeee');
+        e.stopPropagation();
         e.preventDefault();
         var data = $(this).serialize();
 
@@ -221,7 +202,24 @@ $(document).ready(function () {
             && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            $.post('https://script.google.com/macros/s/AKfycbzUqz44wOat0DiGjRV1gUnRf4HRqlRARWggjvHKWvqniP7eVDG-/exec', data)
+            $.ajax({
+                type: 'POST',
+                url: 'https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbzlsUD1WHQWeX9Pzh9nQssnD23QUyuKJkDx_Ap11AIdun1hJOQ/exec',
+                data: data,
+                dataType: 'json',
+                contentType: 'application/x-www-form-urlencoded',
+                xhrFields: { withCredentials: true },
+                success: function(res) {
+                    console.log(res);
+                    $('#alert-wrapper').html('');
+                    $('#rsvp-modal').modal('show');
+                },
+                error: function() {
+                    console.log(data);
+                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
+                }
+            });
+            /*$.post('https://script.google.com/macros/s/AKfycbzlsUD1WHQWeX9Pzh9nQssnD23QUyuKJkDx_Ap11AIdun1hJOQ/exec', data)
                 .done(function (data) {
                     console.log(data);
                     $('#alert-wrapper').html('');
@@ -230,8 +228,10 @@ $(document).ready(function () {
                 .fail(function (data) {
                     console.log(data);
                     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                });
+                });*/
         }
+
+        return false;
     });
 
 });
