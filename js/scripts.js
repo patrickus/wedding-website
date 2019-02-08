@@ -206,6 +206,9 @@ $(document).ready(function () {
 
     $('#add-to-cal').html(myCalendar);
 
+    $('#instagram-feed').html(userFeed.run());
+    $('#instagram-feed').html(scrape);
+
 
     /********************** RSVP **********************/
     $('#rsvp-form').on('submit', function (e) {
@@ -237,7 +240,7 @@ $(document).ready(function () {
 
 // Google map
 function initMap() {
-    var itc_kol = {lat: 22.5932759, lng: 88.27027720000001};
+    var itc_kol = {lat: 37.1896567, lng: -121.9951621};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: itc_kol,
@@ -251,7 +254,7 @@ function initMap() {
 }
 
 function initBBSRMap() {
-    var la_fiesta = {lat: 20.305826, lng: 85.85480189999998};
+    var la_fiesta = {lat: 37.1896567, lng: -121.9951621};
     var map = new google.maps.Map(document.getElementById('map-canvas'), {
         zoom: 15,
         center: la_fiesta,
