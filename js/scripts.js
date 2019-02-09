@@ -208,7 +208,7 @@ $(document).ready(function () {
                 data: data,
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded',
-                xhrFields: { withCredentials: true },
+                xhrFields: { withCredentials: false },
                 success: function(res) {
                     console.log(res);
                     $('#alert-wrapper').html('');
