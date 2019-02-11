@@ -202,24 +202,7 @@ $(document).ready(function () {
             && MD5($('#invite_code').val()) !== '2ac7f43695eb0479d5846bb38eec59cc') {
             $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> Your invite code is incorrect.'));
         } else {
-            $.ajax({
-                type: 'POST',
-                url: 'https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbzlsUD1WHQWeX9Pzh9nQssnD23QUyuKJkDx_Ap11AIdun1hJOQ/exec',
-                data: data,
-                dataType: 'json',
-                contentType: 'application/x-www-form-urlencoded',
-                xhrFields: { withCredentials: false },
-                success: function(res) {
-                    console.log(res);
-                    $('#alert-wrapper').html('');
-                    $('#rsvp-modal').modal('show');
-                },
-                error: function() {
-                    console.log(data);
-                    $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                }
-            });
-            /*$.post('https://script.google.com/macros/s/AKfycbzlsUD1WHQWeX9Pzh9nQssnD23QUyuKJkDx_Ap11AIdun1hJOQ/exec', data)
+            $.post('https://script.google.com/macros/s/AKfycbzlsUD1WHQWeX9Pzh9nQssnD23QUyuKJkDx_Ap11AIdun1hJOQ/exec', data)
                 .done(function (data) {
                     console.log(data);
                     $('#alert-wrapper').html('');
@@ -228,7 +211,7 @@ $(document).ready(function () {
                 .fail(function (data) {
                     console.log(data);
                     $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
-                });*/
+                });
         }
 
         return false;
