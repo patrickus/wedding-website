@@ -14,7 +14,7 @@ $(document).ready(function () {
                 var image = edges[x].node.display_url;
                 var caption = edges[x].node.edge_media_to_caption.edges[0].node.text;
 
-                $('#instagram-feed').append('<div class="col-xs-6 col-md-4 col-lg-3">' +
+                $('#instagram-feed').append('<div class="col-xs-6 col-md-4 col-lg-3 col-height">' +
                     '<a class="fancybox" rel="group" href="' + image + '">\n' +
                     '                    <div class="img-wrap">\n' +
                     '                    <div class="overlay">\n' +
