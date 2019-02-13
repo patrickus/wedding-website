@@ -1,8 +1,5 @@
 $(document).ready(function () {
 
-    var token = '1362124742.7b33a8d.6613a3567f0a425f9852055b8ef743b7',
-        hashtag= 'simplyimpey',
-        num_photos = 10;
 
     $.get('https://cors-anywhere.herokuapp.com/https://www.instagram.com/explore/tags/simplyimpey/?__a=1')
         .done(function (data) {
