@@ -1,5 +1,37 @@
 $(document).ready(function () {
 
+    var token = '1362124742.7b33a8d.6613a3567f0a425f9852055b8ef743b7',
+        hashtag= 'simplyimpey',
+        num_photos = 10;
+
+    $.get('https://cors-anywhere.herokuapp.com/https://www.instagram.com/explore/tags/simplyimpey/?__a=1')
+        .done(function (data) {
+            var edges = data.graphql.hashtag.edge_hashtag_to_media.edges;
+            var tagImage = data.graphql.hashtag.profile_pic_url;
+            console.log(data);
+            for(x in edges) {
+                var thumbnail = edges[x].node.thumbnail_src;
+                var image = edges[x].node.display_url;
+                var caption = edges[x].node.edge_media_to_caption.edges[0].node.text;
+
+                $('#instagram-feed').append('<div class="col-xs-4 col-md-3 col-lg-2">' +
+                    '<a class="fancybox" rel="group" href="' + image + '">\n' +
+                    '                    <div class="img-wrap">\n' +
+                    '                    <div class="overlay">\n' +
+                    '                    <i class="fa fa-search"></i>\n' +
+                    '                    </div>\n' +
+                    '                    <img src="' + thumbnail + '" alt=""/>\n' +
+                    '                    </div>\n' +
+                    '                    </a>' +
+                    '<div class="comment">' + caption + '</div>' +
+                    '</div>');
+            }
+
+            $('#tag-image').append('<img class="tag-image" src="' + tagImage + '" alt=""/>');
+        })
+        .fail(function (data) {
+            console.log(data);
+        });
     /***************** Waypoints ******************/
 
     $('.wp1').waypoint(function () {
