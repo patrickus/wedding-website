@@ -220,7 +220,6 @@ $(document).ready(function () {
 
     /********************** RSVP **********************/
     $('#rsvpBtn').on('click', function (e) {
-        console.log('hereeeeeeee');
         e.stopPropagation();
         e.preventDefault();
         var data = $('#rsvp-form').serialize();
@@ -229,12 +228,10 @@ $(document).ready(function () {
 
         $.post('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbzlsUD1WHQWeX9Pzh9nQssnD23QUyuKJkDx_Ap11AIdun1hJOQ/exec', data)
             .done(function (data) {
-                console.log(data);
                 $('#alert-wrapper').html('');
                 $('#rsvp-modal').modal('show');
             })
             .fail(function (data) {
-                console.log(data);
                 $('#alert-wrapper').html(alert_markup('danger', '<strong>Sorry!</strong> There is some issue with the server. '));
             });
 
