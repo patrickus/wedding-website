@@ -111,12 +111,12 @@
                     first site. From then on I spent time talking to friends and thinking about how to best woo her.
                     After that first night, I invited her on a breakfast date to a small restaurant named
                     The Daily Grind. We dated and got closer for months, with more and more dates, trips to tijuana,
-                    and plenty of flowers and surprises. I officially asked her out on Dec. 8 2012 and we spent the
+                    and plenty of flowers and surprises. I officially asked her out on Dec. 8, 2012 and we spent the
                     next years getting closer and falling for each other. We traveled together all over the world,
                     from Argentina, to Europe, Costa Rica, and many more. Each trip brought us closer together and
                     ready for the next step in our lives.
 
-                    April 21 2018, 6 years later, I surprised Ali with a trip to Lake Tahoe and asked her to spend the
+                    April 21, 2018. 6 years later, I surprised Ali with a trip to Lake Tahoe and asked her to spend the
                     rest of her life with me. I am so honored and happy she said yes!  Now we are so excited to share
                     our union with our friends and family!
                 </p>
@@ -206,10 +206,6 @@
                 </a>
             </div>
         </div>
-        <!--<div class="row">
-            <div class="col-xs-12 section-border section-padding">
-            </div>
-        </div>-->
     </div>
 
     <div id="dc-modal" class="modal fade" tabindex="-1" role="dialog">
@@ -253,86 +249,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-4 col-md-3 col-lg-2">
-                <a class="fancybox" rel="group" href="img/newFiles/1.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/newFiles/1.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-4 col-md-3 col-lg-2">
-                <a class="fancybox" rel="group" href="img/newFiles/2.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/newFiles/2.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-4 col-md-3 col-lg-2">
-                <a class="fancybox" rel="group" href="img/newFiles/3.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/newFiles/3.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-4 col-md-3 col-lg-2">
-                <a class="fancybox" rel="group" href="img/newFiles/4.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/newFiles/4.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-4 col-md-3 col-lg-2">
-                <a class="fancybox" rel="group" href="img/newFiles/5.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/newFiles/5.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-4 col-md-3 col-lg-2">
-                <a class="fancybox" rel="group" href="img/us/IMG_0620.JPG">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/newFiles/6.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-4 col-md-3 col-lg-2">
-                <a class="fancybox" rel="group" href="img/newFiles/7.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/newFiles/7.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
-            <div class="col-xs-4 col-md-3 col-lg-2">
-                <a class="fancybox" rel="group" href="img/newFiles/8.jpg">
-                    <div class="img-wrap">
-                        <div class="overlay">
-                            <i class="fa fa-search"></i>
-                        </div>
-                        <img src="img/newFiles/8.jpg" alt=""/>
-                    </div>
-                </a>
-            </div>
+            <div id="new-eng-pics"/>
             <div class="col-xs-4 col-md-3 col-lg-2">
                 <a class="fancybox" rel="group" href="img/us/IMG_0620.JPG">
                     <div class="img-wrap">
@@ -688,5 +605,22 @@
 <script src="js/scripts.min.js"></script>
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClIfRrBHmcaLzb_0vpX-bFkYbZKaI54-M&callback=initMap"></script>
+<script>
+    var text = "";
+    var i;
+    for (i = 1; i <= 66; i++) {
+        text += `<div class="col-xs-4 col-md-3 col-lg-2">
+                        <a class="fancybox" rel="group" href="img/newFiles/${i}.jpg">
+                        <div class="img-wrap">
+                        <div class="overlay">
+                        <i class="fa fa-search"></i>
+                        </div>
+                        <img src="img/newFiles/${i}.jpg" alt=""/>
+                        </div>
+                        </a>
+                        </div>`;
+    }
+    document.getElementById("new-eng-pics").innerHTML = text;
+</script>
 </body>
 </html>
