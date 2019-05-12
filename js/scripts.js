@@ -1,6 +1,4 @@
 $(document).ready(function () {
-
-
     $.get('https://cors-anywhere.herokuapp.com/https://www.instagram.com/explore/tags/simplyimpey/?__a=1')
         .done(function (data) {
             var edges = data.graphql.hashtag.edge_hashtag_to_media.edges;

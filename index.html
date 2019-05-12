@@ -249,7 +249,15 @@
             </div>
         </div>
         <div class="row">
-            <div id="new-eng-pics"/>
+            <div id="engPics1"/>
+        </div>
+        <div class="row">
+            <div id="engPics2"/>
+        </div>
+        <div class="row">
+            <div id="engPics3"/>
+        </div>
+        <div class="row">
             <div class="col-xs-4 col-md-3 col-lg-2">
                 <a class="fancybox" rel="group" href="img/us/IMG_0620.JPG">
                     <div class="img-wrap">
@@ -606,10 +614,12 @@
 <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyClIfRrBHmcaLzb_0vpX-bFkYbZKaI54-M&callback=initMap"></script>
 <script>
-    var text = "";
-    var i;
-    for (i = 1; i <= 66; i++) {
-        text += `<div class="col-xs-4 col-md-3 col-lg-2">
+    function findPics(from = 1, to = 20, id) {
+        console.log(id);
+        var text = "";
+        var i;
+        for (i = from; i <= to; i++) {
+            text += `<div class="col-xs-4 col-md-3 col-lg-2">
                         <a class="fancybox" rel="group" href="img/newFiles/${i}.jpg">
                         <div class="img-wrap">
                         <div class="overlay">
@@ -619,8 +629,12 @@
                         </div>
                         </a>
                         </div>`;
+        }
+        document.getElementById(id).innerHTML = text;
     }
-    document.getElementById("new-eng-pics").innerHTML = text;
+    window.setTimeout(this.findPics(1, 10, "engPics1"), 100);
+    window.setTimeout(this.findPics(11, 19, "engPics2"), 300);
+    window.setTimeout(this.findPics(55, 66, "engPics3"), 500);
 </script>
 </body>
 </html>
