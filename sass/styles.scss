@@ -300,6 +300,9 @@ Hero
   width: 100%;
   z-index: 999;
 }
+.add-height {
+  min-height: 400px;
+}
 .fixed {
   position: fixed;
   background-color: rgba(55, 36, 40, .88);
